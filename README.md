@@ -91,7 +91,23 @@
        docker image tag image_name:tag_name repo_name
        docker image tag redis:latest farhodhikmatullayev/myredis:6.0.7  # for example
        docker image push farhodhikmatullayev/myredis:6.0.7  # push qilish
-4. Docker compose
+4. Docker compose - bir nechta containerlarni avtomatlashtirilgan tarzda boshqarish imkonini beruvchi vosita
+   Docker compose versiyasini tekshirish
+
+       docker-compose version
+   Docker-compose.yml example
+
+       version: "3"
+       services: 
+         backend:
+           build:
+             ports:
+               - "80:5000"
+             volumes:
+               - "/sources/:/src"
+         redis:
+           image: redis
+   
    
    
    
