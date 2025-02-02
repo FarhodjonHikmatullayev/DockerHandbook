@@ -80,6 +80,15 @@
 
        docker container run -d -p 6379:6379 redis
        telnet localhost 6379  # redis containerga ulannish  ping-pong
+3. Docker Hubga local imagelarni yuklash
+
+       docker image ls  # localdagi imagelar ro'yxatini ko'rish
+   Login qilish
+
+       docker login -u username
+       docker image tag image_name:tag_name repo_name
+       docker image tag redis:latest farhodhikmatullayev/myredis:6.0.7  # for example
+       docker image push farhodhikmatullayev/myredis:6.0.7  # push qilish
    
    
      
