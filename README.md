@@ -1,6 +1,6 @@
 # DockerHandbook
 
-1. Kontainerlarning ro'yxatini ko'rish
+1. Kontainerlar asosiy kommandalari
 
        docker container ls
        docker ps
@@ -37,5 +37,23 @@
 
        docker container exec container_name command_name
        docker container exec my_container ls  # docker ichida ls ni ishlatib uning tashqarisida natijani ko'rish
+
+2. Docker imagelar uchun asosiy komandalar
+   Docker imagelar ro'yxatini ko'rish
+
+       docker image ls
+   Docker imageni yuklab olish
+
+       docker image pull image_name::tag_name
+       docker image pull hello-world::latest  # for example
+   Docker imageni local repositorydan o'chirish
+
+       docker image rm image_name_or_image_id::tag_name  # agar tag_name berilmasa latest tagini defoult oladi
+       docker image rm -f image_name_or_image_id::tag_name
+       docker image prune  # barcha ishlamayotgan imagelarni o'chirib yuborish
+   Docker imagelarning kompyuter xotirasidan egallayotgan joyini ko'rish
+
+       docker system df
+   
      
    
