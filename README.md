@@ -99,7 +99,7 @@
 
        version: "3"
        services: 
-         backend:
+         backend: .
            build:
              ports:
                - "80:5000"
@@ -107,6 +107,7 @@
                - "/sources/:/src"
          redis:
            image: redis
+   
    
    
    
