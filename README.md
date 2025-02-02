@@ -86,9 +86,13 @@
    Login qilish
 
        docker login -u username
+   Docker imageni tag qilish va uni docker hubga push qilish
+   
        docker image tag image_name:tag_name repo_name
        docker image tag redis:latest farhodhikmatullayev/myredis:6.0.7  # for example
        docker image push farhodhikmatullayev/myredis:6.0.7  # push qilish
+4. Docker compose
+   
    
    
      
