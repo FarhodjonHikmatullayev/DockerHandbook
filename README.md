@@ -54,6 +54,33 @@
    Docker imagelarning kompyuter xotirasidan egallayotgan joyini ko'rish
 
        docker system df
+   Docker image qurish
+
+       docker image build -t image_name:image_verion file_path
+       docker image build -t mynginx:v1.0 .  # Example sifatida shu pathda joylashgan my_nginx image foydalanildi
+   Docker file Example - https://youtu.be/qHTs15-_mdU?si=v610_4m6WmtsXt_K
+
+       FROM debian:buster-slim
+       RUN apt-get update    # bir RUN ichida bir nechta buyruqlarni yozish uchun && dan foydalaniladi
+       RUN apt-get install -y nginx
+       COPY ./nginx1.html /var/www/html
+       CMD nginx -g 'daemon off;'
+   Docker containerdagi portni local containerdagi portga bog'lash
+
+       docker container run -p local_port:container_port
+       docker container run -p 80:80  # example
+       docker container run -d -p 80:80 nginx
+       docker container run -d -p 127.0.0.1:80:80 nginx  # ip manzilini ham qo'shish
+       docker container run -d -p 83:80 -p 444:443 nginx  # har bir portni alohida mapping qilish
+       docker container run -d -p 5000-5200:5000-5200 nginx  # 5000 portdan boshlab 5200 portgacha mapping qilish
+   Local kompyuterdagi barcha IP manzillarni ko'rish
+
+       ipconfig  # cmd oynasida beriladi
+   Containerni sinab ko'rish
+
+       docker container run -d -p 6379:6379 redis
+       telnet localhost 6379  # redis containerga ulannish  ping-pong
+   
    
      
    
