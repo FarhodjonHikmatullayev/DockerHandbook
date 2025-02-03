@@ -95,18 +95,51 @@
    Docker compose versiyasini tekshirish
 
        docker-compose version
+   Dockerfile example
+
+       FROM python:3.8-buster
+
+       ENV PYTHONBUFFERED=1
+       
+       WORKDIR /django
+       
+       COPY requirements.txt requirements.txt
+       
+       RUN pip install -r requirements.txt
+       
+       COPY . .
+       
+       CMD gunicorn config.wsgi:application --bind 0.0.0.0.8000
+       
+       EXPOSE 8000
+
+   .dockerignore
+
+       venv
    Docker-compose.yml example
 
-       version: "3"
-       services: 
-         backend: .
-           build:
-             ports:
-               - "80:5000"
-             volumes:
-               - "/sources/:/src"
-         redis:
-           image: redis
+       version: "3.11"
+       services:
+         app:
+           build: .
+           volumes:
+             - .:/django
+           ports:
+             - 8000:8000
+           image: application:django
+           container_name: app_container
+           command: gunicorn config.wsgi:application --bind 0.0.0.0.8000
+
+   Build docker-compose (image build qilish)
+
+       docker-compose build
+   Docker-composeni up qilish (container hosil qilish)
+
+       docker-compose up
+   Docker cache cleanup (docker cacheni tozalash)
+
+       docker builder prune
+   
    
    
    
